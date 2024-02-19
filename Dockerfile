@@ -1,13 +1,15 @@
-FROM node:13-slim
+FROM node:slim
 
-LABEL version="1.0"
-LABEL description="gcloud ci/cd test"
-LABEL name="gcloud-ci-cd-test"
+ENV NODE_ENV=development
 
-WORKDIR /app
+#WORKDIR /app
 
-EXPOSE 8081
+COPY package*.json ./
 
-ADD . /app
+RUN npm install
 
-CMD ["node", "server.js"]
+COPY . .
+
+CMD [ "node", "src/index.js" ]
+
+EXPOSE 8080
