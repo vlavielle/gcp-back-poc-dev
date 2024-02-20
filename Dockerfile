@@ -2,7 +2,7 @@ FROM node:slim
 
 ENV NODE_ENV=development
 
-#WORKDIR /app
+WORKDIR /app
 
 COPY package*.json ./
 
